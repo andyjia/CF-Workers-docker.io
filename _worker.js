@@ -342,7 +342,22 @@ export default {
 	async fetch(request, env, ctx) {
 		const getReqHeader = (key) => request.headers.get(key); // 获取请求头
 
-		let url = new URL(request.url); // 解析请求URL
+		// Token authentication via query parameter
+		const VALID_TOKEN = '12345'; // Replace with your actual secret token
+		const url = new URL(request.url);
+		const token = url.searchParams.get('token');
+
+		if (!token) {
+			return new Response('Unauthorized: Missing token', { status: 401 });
+		}
+
+		if (token !== VALID_TOKEN) {
+			return new Response('Unauthorized: Invalid token', { status: 401 });
+		}
+
+		// Token is valid, proceed with the request
+
+		// let url = new URL(request.url); // 解析请求URL
 		const userAgentHeader = request.headers.get('User-Agent');
 		const userAgent = userAgentHeader ? userAgentHeader.toLowerCase() : "null";
 		if (env.UA) 屏蔽爬虫UA = 屏蔽爬虫UA.concat(await ADD(env.UA));
