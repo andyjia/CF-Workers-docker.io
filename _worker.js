@@ -357,7 +357,7 @@ export default {
 
 		// Token is valid, proceed with the request
 
-		// let url = new URL(request.url); // 解析请求URL
+		let url = new URL(request.url); // 解析请求URL
 		const userAgentHeader = request.headers.get('User-Agent');
 		const userAgent = userAgentHeader ? userAgentHeader.toLowerCase() : "null";
 		if (env.UA) 屏蔽爬虫UA = 屏蔽爬虫UA.concat(await ADD(env.UA));
