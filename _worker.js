@@ -343,17 +343,17 @@ export default {
 		const getReqHeader = (key) => request.headers.get(key); // 获取请求头
 
 		// Token authentication via query parameter
-		const VALID_TOKEN = '12345'; // Replace with your actual secret token
-		let url = new URL(request.url);
-		const token = url.searchParams.get('token');
+		// const VALID_TOKEN = '12345'; // Replace with your actual secret token
+		// let url = new URL(request.url);
+		// const token = url.searchParams.get('token');
 
-		if (!token) {
-			return new Response('Unauthorized: Missing token', { status: 401 });
-		}
+		// if (!token) {
+		// 	return new Response('Unauthorized: Missing token', { status: 401 });
+		// }
 
-		if (token !== VALID_TOKEN) {
-			return new Response('Unauthorized: Invalid token', { status: 401 });
-		}
+		// if (token !== VALID_TOKEN) {
+		// 	return new Response('Unauthorized: Invalid token', { status: 401 });
+		// }
 
 		// Token is valid, proceed with the request
 
