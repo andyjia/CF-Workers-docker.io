@@ -344,7 +344,7 @@ export default {
 
 		// Token authentication via query parameter
 		const VALID_TOKEN = '12345'; // Replace with your actual secret token
-		const url = new URL(request.url);
+		let url = new URL(request.url);
 		const token = url.searchParams.get('token');
 
 		if (!token) {
